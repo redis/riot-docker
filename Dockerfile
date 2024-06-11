@@ -1,4 +1,4 @@
-# Generated with JReleaser 1.13.0-SNAPSHOT at 2024-05-28T13:35:20.806726703Z
+# Generated with JReleaser 1.13.0-SNAPSHOT at 2024-06-11T22:55:52.833823252Z
 FROM azul/zulu-openjdk-alpine:21-jre
 
 LABEL "org.opencontainers.image.title"="riot"
@@ -6,7 +6,7 @@ LABEL "org.opencontainers.image.description"="Get data in and out of Redis with 
 LABEL "org.opencontainers.image.url"="https://github.com/redis/riot"
 LABEL "org.opencontainers.image.licenses"="Apache-2.0"
 LABEL "org.opencontainers.image.version"="4.0.0-SNAPSHOT"
-LABEL "org.opencontainers.image.revision"="86b1f5a8249134eb640080c40edb4520ba47eaa7"
+LABEL "org.opencontainers.image.revision"="d810b5713f136911445c24cf51ff59cd3550c1db"
 
 
 COPY assembly/ /
