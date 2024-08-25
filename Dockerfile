@@ -1,21 +1,21 @@
-# Generated with JReleaser 1.13.1 at 2024-08-25T18:21:47.141579811Z
+# Generated with JReleaser 1.13.1 at 2024-08-25T20:48:47.606009955Z
 FROM azul/zulu-openjdk-alpine:21-jre
 
 LABEL "org.opencontainers.image.title"="riot"
 LABEL "org.opencontainers.image.description"="Get data in and out of Redis with RIOT"
 LABEL "org.opencontainers.image.url"="https://github.com/redis/riot"
 LABEL "org.opencontainers.image.licenses"="Apache-2.0"
-LABEL "org.opencontainers.image.version"="4.1.1"
-LABEL "org.opencontainers.image.revision"="3cc59a6492729ad48763b41816d4d18fc7afee73"
+LABEL "org.opencontainers.image.version"="4.1.2-SNAPSHOT"
+LABEL "org.opencontainers.image.revision"="933881c296e22b57ed9e27ed31e86d2aeb0f19e3"
 
 
 COPY assembly/ /
 
-RUN unzip riot-4.1.1.zip && \
-    rm riot-4.1.1.zip && \
-    chmod +x riot-4.1.1/bin/riot
+RUN unzip riot-early-access.zip && \
+    rm riot-early-access.zip && \
+    chmod +x riot-4.1.2-SNAPSHOT/bin/riot
 
 
-ENV PATH="${PATH}:/riot-4.1.1/bin"
+ENV PATH="${PATH}:/riot-4.1.2-SNAPSHOT/bin"
 
-ENTRYPOINT ["/riot-4.1.1/bin/riot"]
+ENTRYPOINT ["/riot-4.1.2-SNAPSHOT/bin/riot"]
