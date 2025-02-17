@@ -1,0 +1,39 @@
+name: Redis Cluster CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-redis-cluster:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker
+        run: |
+          docker --version
+
+      - name: Start Redis Cluster
+        run: |
+          docker-compose up -d
+          sleep 10  # Wait for cluster to start
+
+      - name: Verify Cluster
+        run: |
+          docker ps
+          docker exec -it redis-node-1 redis-cli -p 7000 cluster nodes
+
+      - name: Test Redis Command
+        run: |
+          docker exec -it redis-node-1 redis-cli -p 7000 SET testkey "GitHub Actions Redis Cluster"
+          docker exec -it redis-node-1 redis-cli -p 7000 GET testkey
+
+      - name: Stop Redis Cluster
+        run: docker-compose down
